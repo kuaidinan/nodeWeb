@@ -1,0 +1,413 @@
+input{
+    height: 48px;
+    line-height: 48px;   //光标问题 
+    text-indent: 0;
+    background: transparent;
+    border: 0 none;
+    resize:none; 
+    outline:none;  /*清除选中效果的默认蓝色边框 */
+    -webkit-appearance:none;  /*清除浏览器默认的样式 */
+    line-height: normal;   //光标问题 
+    text-align: right;
+    display: block;
+    color: #333333;
+    @include px2rem('font-size',15px,37.5px);
+    // font-size:15px;
+    border: 1px solid transparent;
+    &::placeholder{
+        color:#cccccc;
+        @include px2rem('font-size',15px,37.5px);
+    }
+}
+
+textarea{
+    text-align: right;
+    color: #333333;
+    // height: 42px;
+    overflow: visible;
+    display: block;
+    width:100%;
+    @include px2rem('font-size',15px,37.5px);
+    resize: none;
+    outline: none;
+    border:none;
+    outline:none;
+    padding-right:10px;
+    @include px2rem('text-indent',30px,37.5px);
+    &::placeholder{
+        color:#cccccc;
+        @include px2rem('font-size',15px,37.5px);
+    }
+}
+
+select{
+    -webkit-appearance:none;
+    appearance:none;
+    border:none;
+    display: block;
+    @include px2rem('font-size',15px,37.5px);
+    width:100%;
+    height: 48px;
+    line-height: 48px;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    background-color: #FFFFFF;
+    color:#333333;
+    border-radius:4px;
+    text-align: right;
+}
+select {
+    direction: rtl;
+}
+select option {
+    direction: ltr;
+}
+.mint-cell{
+    background: none;
+    min-height: auto;
+    &:last-child{
+        background: none;
+    }
+    .mint-cell-wrapper{
+        background: none;
+        display: flex;
+        padding: 0;
+        .mint-cell-title{
+            flex:0 0 140px;
+            .mint-cell-text{
+                @include px2rem('font-size',15px,37.5px);
+            }
+        }
+        .mint-cell-value{
+            flex:1;
+            .mint-field-core{
+                @include px2rem('font-size',15px,37.5px);
+            }
+            height: 100%;
+            input{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    &.delete-cell{
+        .mint-cell-wrapper{
+            .mint-cell-value{
+                .mint-field-core{
+                    @include px2rem('font-size',15px,37.5px);
+                }
+                width: auto;
+                height: 100%;
+                input{
+                    width: auto;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+.mint-cell-swipe{
+    .mint-cell-wrapper{
+        .mint-cell-title{
+            @include px2rem('flex-basis',90px,37.5px);
+            flex-wrap: nowrap;
+            .mint-cell-text{
+                white-space: nowrap;
+            }
+        }
+    }
+    &.is-danger{
+        .mint-cell-wrapper{
+            border-bottom:1px solid #EF4C4F!important;
+            .mint-cell-text{
+                color:#EF4C4F;
+            }
+        }
+    }
+}
+.imgbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @include px2rem('width',173px,37.5px);
+    @include px2rem('height',110px,37.5px);
+    // overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        background-size:cover;
+        @include px2rem('border-radius',8px,37.5px);
+    }
+    .text{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        position: absolute;
+        @include px2rem('font-size',15px,37.5px);
+        // font-size: 15px;
+        color: #666666;
+        padding:5px 0;
+    }
+    .img-delete{
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        margin: 6px;
+        right: -7px;
+        top:-6px;
+    }
+}
+
+// 自定义input样式
+.zm-input{
+    text-indent: 0;
+    background: transparent;
+    border: 0 none;
+    resize:none; 
+    outline:none;  /*清除选中效果的默认蓝色边框 */
+    -webkit-appearance:none;  /*清除浏览器默认的样式 */
+    line-height: normal;   //光标问题 
+    width: auto;
+    @include px2rem('width',70px,37.5px);
+    &.large{
+        @include px2rem('padding-right',10px,37.5px);
+        @include px2rem('width',140px,37.5px);
+    }
+    &::-webkit-input-placeholder{
+        line-height: 0.44rem;   //placeholder
+    }
+    &:focus{
+        color: #8b8791;
+    }
+}
+
+
+.aFund-wrapper{
+    .aFundTitle{
+        .mint-cell-wrapper{
+            border-bottom:none;
+            padding: 0;
+        }
+    }
+    .aFundInfo{
+        // @include px2rem('padding-left',45px,37.5px);
+        border-bottom:1px solid #eeeeee;
+        display: flex;
+        flex-wrap:nowrap;
+        align-items: flex-start;
+        position: relative;
+        .aFundInfo-icon{
+            flex:0 0 26px;
+            color:$color-theme;
+            // @include px2rem('margin-top',17px,37.5px);
+            margin-top:17px;
+            @include px2rem('padding-right',10px,37.5px);
+            @include px2rem('padding-bottom',20px,37.5px);
+            .img{
+                width: 16px;
+                height: 16px;
+            }
+        }
+        .aFundInfo-cell{
+            flex:auto;
+        }
+        .zmCell{
+            border-top:1px solid #eeeeee;
+        }
+    }
+}
+
+// 报错信息
+.error{
+    @include px2rem('font-size',15px,37.5px);
+    @include px2rem('height',21px,37.5px);
+    @include px2rem('line-height',21px,37.5px);
+    @include px2rem('margin-top',9px,37.5px);
+    @include px2rem('margin-left',20px,37.5px);
+    color: $color-theme;
+}
+
+
+.main-wrapper{
+      height:100%;
+    .main {
+        background: $color-background;
+        @include px2rem("padding-left",10px,37.5px);
+        @include px2rem("padding-right",10px,37.5px);
+        @include px2rem("padding-top",10px,37.5px);
+        .zm-select-default{
+            color:#cccccc;
+            option{
+                color:$color-text;
+            }
+        }
+        .uploader-wrapper{
+            display: flex;
+            justify-content:space-between;
+            &.regist{
+                @include px2rem('margin-bottom',20px,37.5px);
+            }
+            .upload{
+                .is-danger{
+                    border-bottom:1px solid $color-theme;
+                }
+            }
+        }
+      }
+}
+
+.table-wrapper {
+    padding: 0 30px 0 20px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 5px solid #eeeeee;
+    &.readonly{
+        position:relative;
+        &::after{
+            content:'';
+            display:inline-block;
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: #F8F8F8;
+            opacity:0.6;
+            border-radius: 8px 8px 0 0;
+            z-index:2;
+        }
+    }
+    .codepass{
+      color: #333333;
+    }
+    &.large{
+        margin-bottom:20px;
+    }
+    &.small{
+        margin-bottom:10px;
+    }
+    &.nomargin{
+        margin-bottom:0;
+    }
+    &.addwork{
+        @include px2rem('margin-bottom',20px,37.5px);
+    }
+    &.experience{
+        @include px2rem('margin-bottom',10px,37.5px);
+    }
+    &.add-box{
+        margin-top:10px;
+        &:last-child{
+          margin-bottom:0;
+        }
+        // .zmCell{
+        //     &:last-child{
+        //       border-bottom:1px solid #eeeeee;
+        //     }
+        // }
+    }
+
+    .input-div {
+    //   flex:auto;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: flex-end;
+    //   color: #cccccc;
+    //   position: relative;
+    //   height: 100%;
+      &.vux-time-wrapper{
+          padding-right: 0;
+      }
+      select{
+          width:100%;
+          height:100%;
+          padding: 0;
+          @include px2rem('padding-right',10px,37.5px);
+      }
+      .text {
+        overflow: hidden;
+        min-height: 20px;
+        color: $color-text;
+        @include px2rem("font-size",15px,37.5px);
+        text-align: right;
+      }
+      .birth-text {
+        width: 60px;
+      }
+      .icon-right {
+        position: absolute;
+        right: -7px;
+        bottom: center;
+        font-size:20px;
+        font-weight:bold;
+      }
+      .time{
+          @include px2rem('width',70px,37.5px);
+          height: 100%;
+          color:$color-text;
+          text-align: center;
+          @include px2rem('font-size',15px,37.5px);
+      }
+      .word{
+          display:inline-block;
+          color:$color-text-ll;
+          font-size:15px;
+          @include px2rem('margin-left',7px,37.5px);
+          @include px2rem('margin-right',7px,37.5px);
+      }
+    }
+    .add-box{
+        width:100%;
+        text-align:center;
+        font-size: 15px;
+        color: $color-theme;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        .add{
+            margin-right:7px;
+            @include px2rem('font-size',12px,37.5px);
+            position:relative;
+            top:1px;
+        }
+        .text{
+            color: $color-theme;
+        }
+    }
+}
+
+.add-box-wrapper{
+    .add-box-li{
+        .add-box{
+            &.no-border{
+                border-bottom:none!important;
+            }
+            .no-border{
+                border:none!important;
+            }
+        }
+        &:last-child{
+            .add-box{
+                border:none;
+                &.has-add{
+                    border-bottom:5px solid #eeeeee;
+                }
+                &.has-eduadd{
+                    border-bottom:5px solid #eeeeee;
+                    .zmCell{
+                        &:last-child{
+                            border:none;
+                        }
+                    }
+                }
+                .zmCell{
+                    border-bottom:1px solid #eeeeee;
+                }
+            }
+        }
+    }
+}

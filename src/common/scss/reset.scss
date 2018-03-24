@@ -1,0 +1,426 @@
+/*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img,
+embed,
+iframe,
+object,
+audio,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a{
+  text-decoration: none!important;
+}
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+
+i{
+  font-style: normal;
+}
+
+body{
+  font-family:PingFangSC,Microsoft YaHei,Helvetica,Arial,sans-serif;
+}
+
+// 插件内的样式修改
+
+// 按钮
+.themebutton{
+  width: 100%;
+  @include px2rem('border-radius',22.5px,37.5px);
+  color:$color-theme!important;
+  border-color:$color-theme!important;
+  @include px2rem('margin-top',40px,37.5px);
+  @include px2rem('height',45px,37.5px);
+  @include px2rem('line-height',45px,37.5px);
+  @include font-dpr(18px);
+  background: $color-theme;
+}
+.mint-button{
+  &:active{
+    &::after{
+      // display: none;
+      opacity: 0.1!important;
+      @include px2rem('border-radius',22.5px,37.5px);
+    }
+  }
+}
+
+.themefillbutton{
+  width: 100%;
+  @include px2rem('border-radius',22.5px,37.5px);
+  color:white!important;
+  border-color:$color-theme!important;
+  background-color: $color-theme!important;
+  @include px2rem('height',45px,37.5px);
+  @include px2rem('line-height',45px,37.5px);
+  @include font-dpr(18px);
+  @include px2rem('margin-top',10px,37.5px);
+  @include px2rem('margin-bottom',30px,37.5px);
+}
+
+// 选择框层级
+.mint-indicator-wrapper{
+  z-index:21;
+}
+
+.mint-field-clear{
+  display: none;
+}
+
+// 覆盖picker 日期选择
+.dateym{
+  .picker{
+      .picker-items{
+          .picker-slot:nth-child(3){
+              display: none;
+          }
+      }
+  }
+}
+
+
+// 覆盖vux样式
+
+.weui-cells{
+  margin-top:0;
+  min-height: 48px;
+  line-height: 48px;
+  .vux-cell-placeholder{
+    color:#cccccc;
+    @include px2rem('font-size',15px,37.5px);
+  }
+  .vux-x-textarea{
+    padding-top:14px;
+    padding-right: 0px;
+    .weui-textarea{
+      @include px2rem('font-size',15px,37.5px);
+      color: #333333;
+      &::placeholder{
+        color:#cccccc;
+        @include px2rem('font-size',15px,37.5px);
+      }
+    }
+  }
+  a{
+      min-height: 48px;
+      line-height: 46px;
+      padding: 0;
+      .vux-cell-value{
+          color:$color-text;
+          @include px2rem('font-size',15px,37.5px);
+          white-space: nowrap;
+      }
+  }
+  &.vux-no-group-title{
+      margin-top:0;   
+  }
+  &::before{
+      display: none;
+  }
+  &::after{
+      display:none;
+  }
+}
+
+
+.vux-time{
+  .weui-cells{
+    a:active{
+      background: none;
+    }
+  }
+  .no-right{
+      &.small{
+        .weui-cell__ft{
+          padding-right:0;
+        }
+      }
+     .weui-cell_access  .weui-cell__ft::after{
+          display:none!important;
+      }
+      .ux-cell-primary::after{
+          background:red;
+          display:none!important;
+      }
+      .vux-datetime-value::after{
+          background:red;
+          display:none!important;
+      }
+  }
+}
+
+// messagebox 样式
+.mint-msgbox-wrapper{
+  .mint-msgbox{
+    @include px2rem('width',320px,37.5px);
+    @include px2rem('border-radius',10px,37.5px);
+    .mint-msgbox-content{
+        padding:0;
+        border:none;
+        min-height: auto;
+        .mint-msgbox-message{
+          @include px2rem('font-size',18px,37.5px);
+          // @include px2rem('margin-top',45px,37.5px);
+          @include px2rem('padding-top',45px,37.5px);
+          @include px2rem('margin-bottom',34px,37.5px);
+          color: #666666;
+          line-height: 23px;
+        }
+    }
+    .mint-msgbox-btns{
+      display: flex;
+      justify-content: center;
+      @include px2rem('padding-left',23px,37.5px);
+      @include px2rem('padding-right',23px,37.5px);
+      @include px2rem('padding-bottom',19px,37.5px);
+      height: auto;
+      .mint-msgbox-btn{
+        border:none;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include px2rem('width',128px,37.5px);
+        @include px2rem('flex-basis',128px,37.5px);
+        @include px2rem('height',36px,37.5px);
+        @include px2rem('line-height',36px,37.5px);
+        @include px2rem('border-radius',18px,37.5px);
+        border:1px solid $color-theme;
+        @include px2rem('font-size',18px,37.5px);
+        &.mint-msgbox-cancel{
+          @include px2rem('margin-right',9px,37.5px);
+          color: $color-theme;
+        }
+        &.mint-msgbox-confirm{
+          @include px2rem('margin-left',9px,37.5px);
+          background: $color-theme;
+          color: white;
+        }
+      }  
+    }
+    &.alertClass{
+      .mint-msgbox-header{
+        @include px2rem('padding-top',20px,37.5px);
+        @include px2rem('padding-bottom',20px,37.5px);
+        .mint-msgbox-title{
+          @include px2rem('font-size',20px,37.5px);
+          color: #333333;
+        }
+      }
+      .mint-msgbox-content{
+        .mint-msgbox-message{
+          font-weight: 100;
+          @include px2rem('font-size',16px,37.5px);
+          color: #666666;
+          margin:0;
+          @include px2rem('padding-top',0px,37.5px);
+          @include px2rem('margin-bottom',17px,37.5px);
+          @include px2rem('padding-left',30px,37.5px);
+          @include px2rem('padding-right',30px,37.5px);
+        }
+      }
+      .mint-msgbox-btns{
+        @include px2rem('padding-bottom',20px,37.5px);
+        display: flex;
+        justify-content: space-around;
+        .mint-msgbox-confirm{
+          flex-grow: 1;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// 覆盖时间选择器样式
+.dp-container{
+  .dp-header{
+    @include px2rem('font-size',15px,37.5px);
+    border-top:1px solid #eeeeee;
+    border-bottom:1px solid #eeeeee;
+    background-image: none;
+    padding:0 15px;
+    height: 50px;
+    line-height: 50px;
+    // background: white;
+    .dp-item{
+      &.dp-left{
+        font-weight: 900;
+        color:$color-theme;
+      }
+      &.dp-right{
+        color:#666666;
+      }
+    }
+  }
+  .dp-content{
+    .dp-item{
+      .scroller-component{
+        // background: white;
+        height: 180px;
+        .scroller-mask{
+          background-size:100% 76px;
+        }
+        .scroller-indicator{
+          top:68px;
+          background: none;
+        }
+        .scroller-content{
+          .scroller-item{
+            @include px2rem('font-size',18px,37.5px);
+            color: #333333;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 覆盖选择起弹窗
+.vux-popup-picker{
+  .vux-popup-picker-container{
+    .vux-popup-header{
+      height: 50px;
+      line-height: 50px;
+      background: white;
+      @include px2rem('font-size',15px,37.5px);
+      &-left{
+        color:$color-theme;
+        @include px2rem('padding-left',30px,37.5px);
+      }
+      &-right{
+        color:#666666;
+        @include px2rem('padding-right',30px,37.5px);
+      }
+    }
+    .vux-picker{
+      height: 199px;
+      .scroller-component{
+        height: 199px;
+        .scroller-mask{
+          height: 199px;
+          background-size:100% 83px;
+        }
+        .scroller-indicator{
+          top:82px;
+        }
+        .scroller-content{
+          top:-20px;
+          .scroller-item{
+            @include px2rem('font-size',15px,37.5px);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// 覆盖picker
+.vux-cell-box{
+  width: 100%;
+  &:not(:first-child):before{
+    border-top:none!important;
+  }
+  .weui-cell{
+    padding:0;
+    .vux-popup-picker-select{
+      height: 50px;
+      line-height: 50px;
+      .vux-popup-picker-value{
+        @include px2rem('font-size',15px,37.5px);
+        padding: 0;
+        @include px2rem('padding-right',10px,37.5px);
+        color: #333333;
+      }
+    }
+  }
+  &.no-right{
+    .weui-cell__ft{
+      display: none;
+    }
+  }
+}
+
+body,html{
+  // height: 100%;
+}
+// toast 样式
+.mint-toast{
+  @include px2rem('width',145px,37.5px);
+  @include px2rem('min-height',45px,37.5px);
+  @include px2rem('border-radius',22.5px,37.5px);
+  opacity: 0.6;
+  background: #000000;
+  .mint-toast-text{
+    @include px2rem('font-size',18px,37.5px);
+    color: #FFFFFF;
+  }
+}
